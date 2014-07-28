@@ -1,7 +1,7 @@
 rustkit
 =======
 
-A library explorer for crates, the rust package manager.
+A library explorer for crates.io, the rust package manager.
 
 ## Dependencies:
  - RethinkDB
