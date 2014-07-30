@@ -1,4 +1,4 @@
-rustkit
+RustKit
 =======
 
 A library explorer for crates.io, the [rust](https://github.com/rust-lang/rust) package manager.
@@ -14,6 +14,6 @@ Setup
 2. View all available rake commands with ```rake -T```
 3. Run the server with ```shotgun```
 
-##With much thanks to:
+### With much thanks to:
 
  - [oren/sinatra-template](https://github.com/oren/sinatra-template)

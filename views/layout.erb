@@ -1,23 +1,21 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
+<html lang="en">
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-theme.css" rel="stylesheet">
+    <script src="angular.js"></script>
     <link href="/stylesheets/application.css" rel='stylesheet'>
+    <script src="/javascript/startup.js"></script>
     <script src="/javascript/application.js"></script>
 
-    <title>Sinatra Template</title>
+    <title>Rust Kit</title>
   </head>
 
-  <body>
+  <body ng-app="RustKit" ng-controller="MainController">
 
     <div id='container'>
       <%= yield %>

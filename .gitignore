@@ -1,0 +1,9 @@
+.bundle
+.sublime-project
+.DS_STORE
+*.swp
+*.rbc
+*.sass-cache
+/pkg
+/doc/api
+
