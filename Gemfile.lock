@@ -1,17 +1,70 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    awesome_print (1.2.0)
+    capybara (2.3.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    capybara-webkit (1.2.0)
+      capybara (>= 2.0.2, < 2.4.0)
+      json
+    coffee-script (2.3.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.7.1)
+    daemons (1.1.9)
+    eventmachine (1.0.3)
+    execjs (2.2.1)
+    json (1.8.1)
+    mime-types (2.3)
+    mini_portile (0.6.0)
+    nokogiri (1.6.3.1)
+      mini_portile (= 0.6.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rdiscount (2.1.7.1)
+    rethinkdb (1.13.0.1)
+      json
+    sass (3.3.12)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    sinatra-asset-snack (0.1.6)
+      coffee-script
+      mime-types
+      sass
+      sinatra
+      yajl-ruby
+    thin (1.6.2)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     tilt (1.4.1)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
+    yajl-ruby (1.2.1)
+    yard (0.8.7.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
+  capybara-webkit
+  rack-test
+  rdiscount
+  rethinkdb (~> 1.13)
+  shotgun
   sinatra
+  sinatra-asset-snack (~> 0.1.6)
+  thin
+  yard
