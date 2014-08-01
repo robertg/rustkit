@@ -4,6 +4,8 @@ gem 'sinatra'
 gem 'rethinkdb', '~>1.13'
 gem 'thin'
 gem 'sinatra-asset-snack', '~>0.1.6'
+gem "octokit", "~> 3.0"
+gem 'pry'
 
 group :development do
   gem "awesome_print"

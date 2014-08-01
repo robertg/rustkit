@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    addressable (2.3.6)
     awesome_print (1.2.0)
     capybara (2.3.0)
       mime-types (>= 1.16)
@@ -11,6 +12,7 @@ GEM
     capybara-webkit (1.2.0)
       capybara (>= 2.0.2, < 2.4.0)
       json
+    coderay (1.1.0)
     coffee-script (2.3.0)
       coffee-script-source
       execjs
@@ -18,11 +20,21 @@ GEM
     daemons (1.1.9)
     eventmachine (1.0.3)
     execjs (2.2.1)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     json (1.8.1)
+    method_source (0.8.2)
     mime-types (2.3)
     mini_portile (0.6.0)
+    multipart-post (2.0.0)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    octokit (3.2.0)
+      sawyer (~> 0.5.3)
+    pry (0.9.12.6)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -32,6 +44,9 @@ GEM
     rethinkdb (1.13.0.1)
       json
     sass (3.3.12)
+    sawyer (0.5.4)
+      addressable (~> 2.3.5)
+      faraday (~> 0.8, < 0.10)
     shotgun (0.9)
       rack (>= 1.0)
     sinatra (1.4.5)
@@ -44,6 +59,7 @@ GEM
       sass
       sinatra
       yajl-ruby
+    slop (3.5.0)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -60,6 +76,8 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   capybara-webkit
+  octokit (~> 3.0)
+  pry
   rack-test
   rdiscount
   rethinkdb (~> 1.13)

@@ -6,4 +6,5 @@
 *.sass-cache
 /pkg
 /doc/api
+config.rb
 
