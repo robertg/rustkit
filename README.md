@@ -12,8 +12,7 @@ Setup
 0. [Install the QT Framework for Tests](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 1. Install the gems with ```bundle install --without production staging```
 2. View all available rake commands with ```rake -T```
-3. Run the server with ```shotgun```
-4. Make a config.rb file. Add the following to it:
+3. Make a config.rb file. Add the following to it:
 ```
 RDB_CONFIG = {
   :host => ENV['RDB_HOST'] || 'localhost',
@@ -25,6 +24,7 @@ KEYS = {
   :GithubToken => '<YOUR GITHUB ACCESS TOKEN>'
 }
 ```
+4. Run the server with ```shotgun```
 
 ### With much thanks to:
 
