@@ -3,6 +3,10 @@ require 'sinatra/asset_snack'
 require 'octokit'
 require 'pry'
 require 'rethinkdb'
+require 'pry-remote'
+require 'pry-stack_explorer'
+require 'pry-debugger'
+
 
 require_relative 'config'
 require_relative 'routes/init'
@@ -19,14 +23,13 @@ class RustKit < Sinatra::Base
   asset_map '/javascript/application.js', ['assets/coffee/controllers/*.coffee', 'assets/coffee/directives/*.coffee', 'assets/coffee/filters/*.coffee']
   asset_map '/stylesheets/application.css', ['assets/scss/**/*.scss', 'assets/scss/*.scss']
 
-  r = RethinkDB::RQL.new
+  set :r, r = RethinkDB::RQL.new
 
   configure do
     set :app_file, __FILE__
     set :db, RDB_CONFIG[:db]
     begin
-      connection = r.connect(:host => RDB_CONFIG[:host],
-        :port => RDB_CONFIG[:port])
+      connection = r.connect(:host => RDB_CONFIG[:host], :port => RDB_CONFIG[:port])
     rescue Exception => err
       puts "Cannot connect to RethinkDB database #{RDB_CONFIG[:host]}:#{RDB_CONFIG[:port]} (#{err.message})"
       Process.exit(1)

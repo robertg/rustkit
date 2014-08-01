@@ -5,7 +5,12 @@ gem 'rethinkdb', '~>1.13'
 gem 'thin'
 gem 'sinatra-asset-snack', '~>0.1.6'
 gem "octokit", "~> 3.0"
+
+#Debugging
 gem 'pry'
+gem 'pry-remote'
+gem 'pry-stack_explorer'
+gem 'pry-debugger'
 
 group :development do
   gem "awesome_print"

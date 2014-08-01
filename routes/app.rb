@@ -1,6 +1,6 @@
 class RustKit < Sinatra::Base
   before do
-    Tools::seed_db()
+    Tools::seed_db(settings.r)
   end
 
   get '/' do
