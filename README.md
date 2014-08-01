@@ -1,7 +1,7 @@
 RustKit
 =======
 
-A library explorer for crates.io, the [rust](https://github.com/rust-lang/rust) package manager.
+A community-made library explorer for crates.io, the [rust](https://github.com/rust-lang/rust) package manager.
 
 ## Built on top of:
  - [RethinkDB](http://rethinkdb.com/)
