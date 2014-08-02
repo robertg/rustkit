@@ -95,6 +95,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   capybara-webkit
+  json
   octokit (~> 3.0)
   pry
   pry-debugger

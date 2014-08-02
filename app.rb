@@ -6,7 +6,7 @@ require 'rethinkdb'
 require 'pry-remote'
 require 'pry-stack_explorer'
 require 'pry-debugger'
-
+require 'json'
 
 require_relative 'config'
 require_relative 'routes/init'
