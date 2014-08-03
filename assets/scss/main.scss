@@ -14,3 +14,18 @@ html { font-size: 62.5%; }
   height: 100%;
   text-align: center;
 }
+
+.search--markdown {
+  background-color: white;
+  overflow: auto;
+}
+
+.search--navigation {
+  text-align: center;
+}
+
+.search--result {
+  width: 48rem;
+  background-color: pink;
+  margin-bottom: 1rem;
+}

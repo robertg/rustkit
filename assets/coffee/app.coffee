@@ -1,1 +1,1 @@
-window.RustKit = angular.module('RustKit', [])
+window.RustKit = angular.module('RustKit', ['duScroll'])

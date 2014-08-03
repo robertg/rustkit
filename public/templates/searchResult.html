@@ -1,0 +1,7 @@
+<div class="search--result">
+  <p ng-bind="result.full_name"></p>
+  <p ng-bind="result.description"></p>
+  <p ng-bind="result.stargazers_count"></p>
+  <button ng-click="toggleExpand()">Expand</button>
+  <div class="search--markdown" ng-if="showReadme" ng-bind-html="result.content"></div>
+</div>
