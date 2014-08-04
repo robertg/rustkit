@@ -2,7 +2,7 @@ window.RustKit.directive 'searchResult', [->
   restrict: 'E'
   scope:
     result: '='
-  templateUrl: 'searchResult.html'
+  templateUrl: 'result.html'
   link: (scope, element) ->
     scope.showReadme = false
     scope.toggleExpand = ->

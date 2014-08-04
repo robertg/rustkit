@@ -1,4 +1,5 @@
 class RustKit < Sinatra::Base
+
   before do
     #Tools::seed_db(settings.r)
     @r = settings.r
@@ -9,23 +10,26 @@ class RustKit < Sinatra::Base
     @connection.close()
   end
 
-  get '/' do
-    erb :main
-  end
-
-  get '/api/libraries/:page' do #There are 200 library listing per page, and page begins at 0.
-    page = params[:page].to_i
+  def libraries_on_page(page)
     libraries = @r.db('rustkit_db').table('libraries')
     {
     results: libraries.orderby(@r.desc(:stargazers_count))
-              .slice(200*page, 200+200*page)
+              .slice(CONSTANTS[:per_page]*page, CONSTANTS[:per_page]+CONSTANTS[:per_page]*page)
               .run(@connection).to_a,
     all_results_size: libraries.count().run(@connection)
     }.to_json
   end
 
-  get '/searchResult.html' do
-    send_file File.join(settings.public_folder, 'templates/searchResult.html')
+  get '/' do
+    erb :main, :locals => { :default_results => libraries_on_page(0) }
+  end
+
+  get '/api/libraries/:page' do #There are CONSTANTS[:per_page] library listing per page, and page begins at 0.
+    libraries_on_page(params[:page].to_i)
+  end
+
+  get '/result.html' do
+    send_file File.join(settings.public_folder, 'templates/result.html')
   end
 
 end

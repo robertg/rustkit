@@ -1,7 +1,6 @@
-window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sce', 'Base64', ($document, $scope, http, $sce, Base64) ->
+window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sce', 'Base64', 'Constants', ($document, $scope, http, $sce, Base64, Constants) ->
   $scope.search = {input: ""} #Model for text search
   $scope.perPage = 20
-  sizeFromBackend = 200
   $scope.currPage = 1
   $scope.totalPages = 0
   $scope.currResults = []
@@ -20,7 +19,7 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
 
     if ($scope.currPage+1)*$scope.perPage > $scope.results.length
       #We need to get the next page.
-      http.get "/api/libraries/#{Math.floor($scope.currResults.length/sizeFromBackend)+1}", (data) ->
+      http.get "/api/libraries/#{Math.floor($scope.currResults.length/Constants.per_page)+1}", (data) ->
         $scope.results = $scope.results.concat(data.results.map (result) ->
           result.content = $sce.trustAsHtml(converter.makeHtml(Base64.b64_to_utf8(result.content))) if result.content
           result
@@ -47,7 +46,8 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
     $scope.all_size
     computeCurrentResults()
 
-  http.get '/api/libraries/0', (data) -> #Set up default page
+  $scope.init = (data) -> #Set up default page
     setupPaginator(data.results, data.all_results_size)
-
+    angular.element(document.getElementById('body')).removeAttr("ng-init") #Remove that embedded data from the DOM.
+    return
 ]
