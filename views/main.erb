@@ -23,9 +23,9 @@
 
     <search-result result="result" ng-repeat="result in currResults"></search-result>
     <div class="search--navigation">
-      <button ng-click="previousPage()" type="button" class="btn btn-primary" href="#text-form">prev</button>
+      <button ng-click="previousPage()" type="button" class="btn btn-primary" ng-class="{disabled: currPage == 1 }" href="#text-form">prev</button>
       <span>{{currPage}} of {{totalPages}}</span>
-      <button ng-click="nextPage()" class="btn btn-primary">next</button>
+      <button ng-click="nextPage()" class="btn btn-primary" ng-class="{disabled: currPage == totalPages }">next</button>
     </div>
   </div>
 </div>

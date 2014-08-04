@@ -1,14 +1,77 @@
-animation:
- - rust-lang/cargo
+windowing:
+ - bjz/glfw-rs
+ - brson/rust-sdl
+ - AngryLawyer/rust-sdl2
+ - JeremyLetang/rust-sfml
+ - servo/rust-glut
+ - SiegeLord/RustAllegro
+ - jeaye/ncurses-rs
+
+open-gl:
+ - bjz/gl-rs
+ - servo/rust-opengles
+
+audio:
+ - bjz/openal-rs
+ - JeremyLetang/rust-portaudio
+ - JeremyLetang/ears
+ - musitdev/rust-portmidi
+
+math:
+ - bjz/cgmath-rs
+ - bjz/color-rs
+ - sebcrozet/nalgebra
+ - bjz/noise-rs
+ - bjz/cgmath-rs
+ - cmr/linalg
+ - bjz/lmath-rs
+
+physics:
+ - bjz/bullet-rs
+ - sebcrozet/ncollide
+ - natal/roft
+
+engine:
+ - rlane/rust-gamedev-kit
+ - sebcrozet/kiss3d
+ - pistondevelopers/piston
+ - katis/apollo
+ - kimhyunkang/r5.rs
+ - servo/rust-mozjs
+
+assets:
+ - h3r2tic/assimp-rs
+ - h3r2tic/freeimage-rs
+ - servo/rust-png
+ - servo/rust-stb-image
 
 web:
  - erickt/rust-url
+ - chris-morgan/rust-http
+ - teepee/teepee
+ - SimonSapin/rust-url
+ - andelf/rust-httpc
+ - carllerche/curl-rust
+ - conduit-rust/conduit
+ - Earlz/rustymvc
+ - erickt/rust-mongrel2
+ - iron/iron
+ - jroweboy/oxidize
+ - nickel-org/nickel.rs
+ - Ogeon/rustful
+ - skade/widmann
+ - WebeWizard/libhttpd
 
 audio:
  - bjz/openal-rs
 
-build:
+manager:
  - rust-lang/cargo
+
+compression:
+ - alexcrichton/rust-compress
+ - erickt/rustzlib
+ - thestinger/rust-snappy
 
 computation:
  - eholk/rust-opencl
@@ -26,8 +89,19 @@ database:
  - linuxfood/rustsqlite
  - 10gen-interns/mongo-rust-driver-prototype
  - esummers/rust-lightning
+ - blackbeam/rust-mysql-simple
  - mitsuhiko/redis-rs
  - mneumann/rust-redis
+
+time:
+ - lifthrasiir/rust-chrono
+ - luisbg/rust-datetime
+ - tedhorst/rust_datetime
+
+embedded:
+ - kballard/rust-lua
+ - tomaka/rust-hl-lua
+ - lukemetz/rustpy
 
 regex:
  - BurntSushi/regexp
@@ -36,3 +110,40 @@ regex:
  - nickdesaulniers/rust-re2
  - erickt/rustpcre
  - cadencemarseille/rust-pcre
+
+encoding:
+ - dwrensha/capnproto-rust
+ - lifthrasiir/rust-encoding
+ - BurntSushi/rust-csv
+ - Geal/rust-csv
+ - seriyps/rust-erl-ext
+ - LeebDeveloper/retf
+ - veddan/rust-htmlescape
+ - mneumann/rust-msgpack
+ - stepancheg/rust-protobuf
+ - tildeio/buffoon
+ - darkf/rust_sexpr
+ - mneumann/rust-toml
+ - erickt/rust-tnetstring
+ - bjz/sax-rs
+ - DanielFath/xml-parser
+ - Florob/RustyXML
+ - netvl/rust-xml
+
+gui:
+ - mozilla-servo/rust-cocoa
+ - JeremyLetang/rgtk
+ - drhodes/rust-ncurses
+ - eevee/amulet
+ - jeaye/ncurses-rs
+ - pnkfelix/rust-curses
+ - gchp/rustbox
+ - apribadi/rust-termbox
+ - apribadi/rust-termbox
+
+parser:
+ - erickt/ragel
+ - jesse99/rparse
+ - kevinmehall/rust-peg
+ - Valloric/nailed
+

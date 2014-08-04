@@ -54,7 +54,7 @@ class RustKit < Sinatra::Base
         if cur_tag.length == 0
           return {error: "Sent a query with an extra bracket, or an empty tag."}.to_json
         else
-          tags << cur_tag if !tags.include? cur_tag
+          tags << cur_tag unless tags.include? cur_tag
           cur_tag = ""
           in_tag = false
         end
