@@ -23,6 +23,8 @@ class Tools
           end
         end
 
+        tags = tags.uniq
+
         begin
           readme = Base64.encode64(client.readme(repo.full_name, :accept => 'application/vnd.github.V3.raw'))
         rescue Octokit::NotFound

@@ -15,18 +15,25 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
     $scope.currResults = []
     $scope.loading = true
     $scope.failed = false
+    $scope.error = null
 
     if value && value.length > 0
       $scope.query = value
       http.post '/api/search/0', {query:value}, (response) ->
-        setupPaginator(response.results, response.all_results_size)
-        $scope.failed = response.all_results_size == 0
-        $scope.loading = false
+        if response.error
+          $scope.error = response.error
+          $scope.loading = false
+        else
+          setupPaginator(response.results, response.all_results_size)
+          $scope.failed = response.all_results_size == 0
+          $scope.error = null
+          $scope.loading = false
     else
       $scope.query = null
       http.get '/api/libraries/0', (response) ->
         setupPaginator(response.results, response.all_results_size)
         $scope.failed = $scope.all_results_size == 0
+        $scope.error = null
         $scope.loading = false
 
   $scope.nextPage = ->
