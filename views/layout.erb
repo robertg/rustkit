@@ -6,19 +6,25 @@
     <meta name="author" content="">
     <link href="bootstrap.css" rel="stylesheet">
     <link href="bootstrap-theme.css" rel="stylesheet">
-    <script src="angular.js"></script>
-    <script src="angular-scroll.min.js"></script>
-    <script src="Markdown.Converter.js"></script>
+    <link href="bootstrap-theme.css" rel="stylesheet">
+    <link href="octicons.css" rel='stylesheet'>
     <link href="/stylesheets/application.css" rel='stylesheet'>
-    <script src="/javascript/startup.js"></script>
-    <script src="/javascript/application.js"></script>
-
+    <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rust Kit</title>
   </head>
 
   <body ng-app="RustKit" ng-controller="MainController">
     <%= yield %>
   </body>
+
+  <script src="angular.js"></script>
+  <script src="angular-scroll.min.js"></script>
+  <script src="ui-bootstrap-tpls-0.11.0.min.js"></script>
+  <script src="Markdown.Converter.js"></script>
+  <script src="/javascript/startup.js"></script>
+  <script src="/javascript/application.js"></script>
+
 </html>
 
 

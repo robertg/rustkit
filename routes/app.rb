@@ -1,5 +1,6 @@
 class RustKit < Sinatra::Base
   before do
+    #Tools::seed_db(settings.r)
     @r = settings.r
     @connection = @r.connect(:host => RDB_CONFIG[:host], :port => RDB_CONFIG[:port])
   end

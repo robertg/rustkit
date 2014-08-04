@@ -1,7 +1,20 @@
 <div class="search--result">
-  <p ng-bind="result.full_name"></p>
-  <p ng-bind="result.description"></p>
-  <p ng-bind="result.stargazers_count"></p>
-  <button ng-click="toggleExpand()">Expand</button>
-  <div class="search--markdown" ng-if="showReadme" ng-bind-html="result.content"></div>
+  <div ng-click="toggleExpand()">
+    <div class="title">
+      <h1 class="col-sm-8 search--inline" ng-bind="result.name"></h1>
+      <div class="col-sm-2">
+        <span class="search--inline octicon octicon-repo-forked"></span>
+        <p class="search--inline" ng-bind="result.forks"></p>
+      </div>
+      <div class="col-sm-2">
+        <span class="search--inline octicon octicon-star"></span>
+        <p class="search--inline" ng-bind="result.stargazers_count"></p>
+      </div>
+    </div>
+    <p class="search--description" ng-bind="result.description"></p>
+  </div>
+  <div ng-if="showReadme">
+    <a class="center" ng-href="{{result.clone_url}}"><span class="mega-octicon octicon-logo-github"></span></a>
+    <div class="search--markdown" ng-if="showReadme" ng-bind-html="result.content"></div>
+  </div>
 </div>

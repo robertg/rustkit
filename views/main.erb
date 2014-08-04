@@ -1,20 +1,21 @@
-<div class="container">
-  <div class="col-xs-8 search" du-scroll-container>
-    <form id="text-form" ng-submit="search(search.input)" role="search">
-      <div id="search" class="form-group">
-        <input type="text" ng-model="search.input" class="form-control" placeholder="Search from {{totalSize || 'n'}} Rust libraries...">
+<div class="container" id="text-form">
+  <div class="row col-md-6 col-md-offset-3 sidebar">
+    <h1 class="sidebar--header">Rust Kit</h1>
+    <p>A Rust library browser. Made by rusties, for rusties. <a href="https://github.com/rgawdzik/rustkit"> Contribute here.</a></p>
+  </div>
+
+  <div class="row col-md-offset-3 col-md-6 search">
+    <form ng-submit="search(search.input)" role="search">
+      <div class="form-group">
+        <input type="text" ng-model="search.input" class="form-control" placeholder="Search from {{totalSize || 'n'}} Rust libraries. Use a tag with [tag].">
       </div>
     </form>
 
     <search-result result="result" ng-repeat="result in currResults"></search-result>
     <div class="search--navigation">
-      <button ng-click="previousPage()" type="button" class="btn btn-default" href="#text-form" du-smooth-scroll du-scrollspy>Prev</button>
-      <button ng-click="nextPage()" class="btn btn-default" href="#text-form" du-smooth-scroll du-scrollspy>Next</button>
+      <button ng-click="previousPage()" type="button" class="btn btn-primary" href="#text-form">Prev</button>
+      <span>{{currPage}} of {{totalPages}}</span>
+      <button ng-click="nextPage()" class="btn btn-primary">Next</button>
     </div>
-
-  </div>
-  <div class="col-xs-4 sidebar">
-    <h1>Rust Kit</h1>
-    <p>A Rust library browser. Made by rusties, for rusties.</p>
   </div>
 </div>

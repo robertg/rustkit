@@ -20,8 +20,8 @@ class RustKit < Sinatra::Base
 
   register Sinatra::AssetSnack
   asset_map '/javascript/startup.js', ['assets/coffee/app.coffee']
-  asset_map '/javascript/application.js', ['assets/coffee/controllers/*.coffee', 'assets/coffee/directives/*.coffee', 'assets/coffee/filters/*.coffee']
-  asset_map '/stylesheets/application.css', ['assets/scss/**/*.scss', 'assets/scss/*.scss']
+  asset_map '/javascript/application.js', ['assets/coffee/controllers/*.coffee', 'assets/coffee/factories/*.coffee', 'assets/coffee/directives/*.coffee', 'assets/coffee/filters/*.coffee']
+  asset_map '/stylesheets/application.css', ['assets/scss/**/*.scss', 'assets/scss/**/**/*.scss', 'assets/scss/*.scss']
 
   set :r, r = RethinkDB::RQL.new
 

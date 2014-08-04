@@ -31,6 +31,7 @@ class Tools
               description:         repo.description,
               last_updated:        repo.updated_at,
               content:             readme,
+              clone_url:           repo.clone_url,
               tags:                []
             }).run(connection)
           else
@@ -42,6 +43,7 @@ class Tools
               description:         repo.description      || existing[:description],
               last_updated:        repo.updated_at       || existing[:updated_at],
               content:             readme                || existing[:readme],
+              clone_url:           repo.clone_url        || existing[:clone_url],
               tags:                []                    || existing[:tags]
             }).run(connection)
           end

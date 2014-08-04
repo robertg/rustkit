@@ -1,4 +1,8 @@
 require 'rake/testtask'
+require 'rethinkdb'
+require 'octokit'
+require_relative 'helpers/init'
+require_relative 'config'
 require 'yard'
 
 task :default => [:'']
@@ -21,10 +25,17 @@ namespace :test do
   task :routes do
     ruby "test/routes/*_test.rb"
   end
-  
+
   desc "Run acceptance tests"
   task :acceptance do
     ruby "test/acceptance/*_test.rb"
+  end
+end
+
+namespace :db do
+  desc "Seed database with libraries"
+  task :seed do
+    Tools::seed_db(RethinkDB::RQL.new)
   end
 end
 
