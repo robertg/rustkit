@@ -7,7 +7,7 @@ A community-made library explorer for crates.io, the [rust](https://github.com/r
  - [RethinkDB](http://rethinkdb.com/)
  - [Sinatra](http://www.sinatrarb.com/)
 
-Note: Library Developers
+Note for Library Developers
 -----
 Want to add a tag, or track your library under Rust Kit? We've made it easy for you. All you need to do is make a Pull Request
 with your changes to [/helpers/yml/tags.yml](https://github.com/rgawdzik/rustkit/blob/master/helpers/yml/tags.yml).
