@@ -41,14 +41,18 @@ class RustKit < Sinatra::Base
       end
     rescue RethinkDB::RqlRuntimeError => err
       puts "ERROR: Database `#{RDB_CONFIG[:db]}` already exists."
+      puts "#{err}"
     end
 
     begin
       unless r.db(RDB_CONFIG[:db]).table_list.run(connection).include? 'libraries'
         r.db(RDB_CONFIG[:db]).table_create('libraries').run(connection)
+        r.db(RDB_CONFIG[:db]).table('libraries').index_create("tags", :multi => true).run(connection)
+        r.db(RDB_CONFIG[:db]).table('libraries').index_wait("tags").run(connection)
       end
     rescue RethinkDB::RqlRuntimeError => err
       puts "ERROR: Table `libraries` already exists."
+      puts "#{err}"
     ensure
       connection.close
     end

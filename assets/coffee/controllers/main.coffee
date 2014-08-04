@@ -7,7 +7,8 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
   converter = new Markdown.Converter()
 
   $scope.search = (value) ->
-    console.log value
+    http.post '/search/0', {query:value}, (response) ->
+      console.log response
 
   $scope.nextPage = ->
     return if $scope.currPage >= $scope.totalPages
@@ -19,7 +20,8 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
 
     if ($scope.currPage+1)*$scope.perPage > $scope.results.length
       #We need to get the next page.
-      http.get "/api/libraries/#{Math.floor($scope.currResults.length/Constants.per_page)+1}", (data) ->
+      debugger
+      http.get "/api/libraries/#{Math.floor($scope.results.length/Constants.per_page)}", (data) ->
         $scope.results = $scope.results.concat(data.results.map (result) ->
           result.content = $sce.trustAsHtml(converter.makeHtml(Base64.b64_to_utf8(result.content))) if result.content
           result
@@ -42,7 +44,7 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
       result.content = $sce.trustAsHtml(converter.makeHtml(Base64.b64_to_utf8(result.content))) if result.content
       result
     $scope.totalPages = Math.ceil(all_size/$scope.perPage)
-    $scope.totalSize = all_size
+    $scope.allSize = $scope.totalSize = all_size
     $scope.all_size
     computeCurrentResults()
 

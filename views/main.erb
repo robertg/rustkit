@@ -1,13 +1,13 @@
 <div class="container" id="text-form">
   <div class="row col-md-6 col-md-offset-3 sidebar">
     <h1 class="sidebar--header">Rust Kit</h1>
-    <p>A Rust library browser. Made by rusties, for rusties. <a href="https://github.com/rgawdzik/rustkit"> Contribute here.</a></p>
+    <p>An unofficial <a href="https://github.com/rust-lang/rust">Rust</a> library browser.<a href="https://github.com/rgawdzik/rustkit"> Contribute here.</a></p>
   </div>
 
   <div class="row col-md-offset-3 col-md-6 search">
     <form ng-submit="search(search.input)" role="search">
       <div class="form-group">
-        <input type="text" ng-model="search.input" class="form-control" placeholder="Search from {{totalSize || 'n'}} Rust libraries. Use a tag with [tag].">
+        <input type="text" ng-model="search.input" class="form-control" placeholder="Search from {{allSize || 'n'}} Rust libraries. Use a tag with [tag].">
       </div>
     </form>
 

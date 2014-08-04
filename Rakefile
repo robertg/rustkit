@@ -1,9 +1,12 @@
 require 'rake/testtask'
 require 'rethinkdb'
 require 'octokit'
+require 'pry-remote'
+require 'pry-stack_explorer'
+require 'pry-debugger'
+require 'yard'
 require_relative 'helpers/init'
 require_relative 'config'
-require 'yard'
 
 task :default => [:'']
 

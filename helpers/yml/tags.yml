@@ -1,0 +1,38 @@
+animation:
+ - rust-lang/cargo
+
+web:
+ - erickt/rust-url
+
+audio:
+ - bjz/openal-rs
+
+build:
+ - rust-lang/cargo
+
+computation:
+ - eholk/rust-opencl
+ - thestinger/rust-gmp
+
+crypto:
+ - DaGenix/rust-crypto
+ - sfackler/rust-openssl
+ - mletterle/rust-nss
+ - dnaq/sodiumoxide
+
+database:
+ - blackbeam/rust-mysql-simple
+ - sfackler/rust-postgres
+ - linuxfood/rustsqlite
+ - 10gen-interns/mongo-rust-driver-prototype
+ - esummers/rust-lightning
+ - mitsuhiko/redis-rs
+ - mneumann/rust-redis
+
+regex:
+ - BurntSushi/regexp
+ - glennsl/rust-re
+ - sanxiyn/rree
+ - nickdesaulniers/rust-re2
+ - erickt/rustpcre
+ - cadencemarseille/rust-pcre
