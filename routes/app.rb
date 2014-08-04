@@ -21,7 +21,7 @@ class RustKit < Sinatra::Base
   end
 
   get '/' do
-    erb :main, :locals => { :default_results => libraries_on_page(0) }
+    erb :main, :locals => { :default_results => libraries_on_page(0), :tags => Tools::get_tags.keys.to_json }
   end
 
   get '/api/libraries/:page' do #There are CONSTANTS[:per_page] library listing per page, and page begins at 0.
@@ -54,7 +54,7 @@ class RustKit < Sinatra::Base
         if cur_tag.length == 0
           return {error: "Sent a query with an extra bracket, or an empty tag."}.to_json
         else
-          tags << cur_tag
+          tags << cur_tag if !tags.include? cur_tag
           cur_tag = ""
           in_tag = false
         end
@@ -66,7 +66,7 @@ class RustKit < Sinatra::Base
     query = query.downcase.gsub /\[.+?\]\s*/, '' #Remove tags, and contents within brackets.
     query = query.gsub /[^a-zA-Z0-9 -]/, '' #Remove any non-alphanumeric characters.
     filter_proc = Proc.new do |repo|
-      query.split(' ').inject(repo["description"].downcase()){ |filter, query| filter.match(query) }
+      query.split(' ').inject(repo["description"].downcase()+" " + repo["full_name"]){ |filter, query| filter.match(query) }
     end
     if tags.length > 0
       if query.split(' ').length > 0

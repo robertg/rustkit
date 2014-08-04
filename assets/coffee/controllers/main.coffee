@@ -6,6 +6,7 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
   $scope.currResults = []
   $scope.loading = true
   $scope.failed = false
+  $scope.query = null
   converter = new Markdown.Converter()
 
   $scope.search = (value) ->
@@ -15,13 +16,14 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
     $scope.loading = true
     $scope.failed = false
 
-
     if value && value.length > 0
+      $scope.query = value
       http.post '/api/search/0', {query:value}, (response) ->
         setupPaginator(response.results, response.all_results_size)
         $scope.failed = response.all_results_size == 0
         $scope.loading = false
     else
+      $scope.query = null
       http.get '/api/libraries/0', (response) ->
         setupPaginator(response.results, response.all_results_size)
         $scope.failed = $scope.all_results_size == 0
@@ -35,15 +37,20 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
       computeCurrentResults()
       $document.scrollTop(0,400)
 
-    if ($scope.currPage+1)*$scope.perPage > $scope.results.length
-      #We need to get the next page.
-      debugger
-      http.get "/api/libraries/#{Math.floor($scope.results.length/Constants.per_page)}", (data) ->
+    if ($scope.currPage+1)*$scope.perPage > $scope.results.length #We need to get the next page.
+      compute = (data) =>
         $scope.results = $scope.results.concat(data.results.map (result) ->
           result.content = $sce.trustAsHtml(converter.makeHtml(Base64.b64_to_utf8(result.content))) if result.content
           result
         )
         deferred()
+
+      if !$scope.query
+        http.get "/api/libraries/#{Math.floor($scope.results.length/Constants.per_page)}", (data) ->
+          compute(data)
+      else
+        http.post "/api/search/#{Math.floor($scope.results.length/Constants.per_page)}", {query:$scope.query}, (data) ->
+          compute(data)
     else
       deferred()
 
@@ -65,10 +72,11 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
     $scope.all_size
     computeCurrentResults()
 
-  $scope.init = (data) -> #Set up default page
+  $scope.init = (data, tags) -> #Set up default page
     setupPaginator(data.results, data.all_results_size)
     $scope.allSize = data.all_results_size
     angular.element(document.getElementById('body')).removeAttr("ng-init") #Remove that embedded data from the DOM.
     $scope.loading = false
+    $scope.tags = tags
     return
 ]

@@ -17,7 +17,7 @@
     <title>Rust Kit</title>
   </head>
 
-  <body id="body" ng-app="RustKit" ng-cloak ng-controller="MainController" ng-init="init(<%= Rack::Utils.escape_html(default_results) %>)">
+  <body id="body" ng-app="RustKit" ng-cloak ng-controller="MainController" ng-init="init(<%= Rack::Utils.escape_html(default_results) %>, <%= Rack::Utils.escape_html(tags) %>)">
     <%= yield %>
   </body>
 

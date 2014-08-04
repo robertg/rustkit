@@ -144,6 +144,10 @@ ul, ol, li {
 .search--title {
   padding-left: 1rem;
   padding-right:1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .search--navigation {
@@ -214,4 +218,21 @@ ul, ol, li {
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
+}
+
+.search--small_tag {
+  display: inline-block;
+  margin: 0.2rem;
+}
+
+.search--tag {
+  display: inline-block;
+  margin: 0.2rem;
+  font-size: 1.5rem;
+}
+
+.search--tag_cntr {
+  padding-left: 1rem;
+  padding-right:1rem;
+  margin-bottom: 0.4rem;
 }

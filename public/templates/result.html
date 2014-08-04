@@ -11,7 +11,11 @@
         <p class="search--inline" ng-bind="result.stargazers_count"></p>
       </div>
     </div>
-    <p class="search--description" ng-bind="result.description"></p>
+    <p class="search--description" ng-bind="result.description||'No description'"></p>
+    <div class="search--tag_cntr">
+      <span class="label label-primary search--small_tag" ng-click="search(search.input = search.input+'['+tag+']')" ng-bind="tag" ng-repeat="tag in result.tags"></span>
+    </div>
+
   </div>
   <div ng-if="showReadme">
     <a class="center" ng-href="{{result.clone_url}}"><span class="mega-octicon octicon-logo-github"></span></a>

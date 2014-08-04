@@ -7,8 +7,9 @@
   <div class="row col-md-offset-3 col-md-6 search">
     <form ng-submit="search(search.input)" role="search">
       <div class="form-group">
-        <input type="text" ng-model="search.input" class="form-control" placeholder="Search from {{allSize || 'n'}} Rust libraries. Use a tag with [tag].">
+        <input type="text" onClick="this.select();" ng-model="search.input" class="form-control" placeholder="Search from {{allSize || 'n'}} Rust libraries with ⏎. Use a tag with [tag].">
       </div>
+      <span class="label label-primary search--tag" ng-click="search(search.input = search.input+'['+tag+']')" ng-bind="tag" ng-repeat="tag in tags"></span>
     </form>
 
     <div ng-if="loading" class="spinner">
@@ -22,9 +23,9 @@
 
     <search-result result="result" ng-repeat="result in currResults"></search-result>
     <div class="search--navigation">
-      <button ng-click="previousPage()" type="button" class="btn btn-primary" href="#text-form">Prev</button>
+      <button ng-click="previousPage()" type="button" class="btn btn-primary" href="#text-form">prev</button>
       <span>{{currPage}} of {{totalPages}}</span>
-      <button ng-click="nextPage()" class="btn btn-primary">Next</button>
+      <button ng-click="nextPage()" class="btn btn-primary">next</button>
     </div>
   </div>
 </div>
