@@ -8,6 +8,8 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
   $scope.failed = false
   $scope.query = null
   converter = new Markdown.Converter()
+  Markdown.Extra.init(converter)
+
 
   $scope.search = (value) ->
     $scope.currPage = 1
