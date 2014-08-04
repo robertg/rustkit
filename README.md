@@ -16,7 +16,7 @@ Setup
 -----
 1. Install the gems with ```bundle install --without test``` (Until we have Unit Tests)
 2. View all available rake commands with ```rake -T```
-3. Make a config.rb file. Add the following to it:
+3. Make a config.rb file on the root of the project. Add the following to it:
 ```
 RDB_CONFIG = {
   host:    ENV['RDB_HOST'] || 'localhost',
