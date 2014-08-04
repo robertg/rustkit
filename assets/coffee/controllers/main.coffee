@@ -2,13 +2,30 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
   $scope.search = {input: ""} #Model for text search
   $scope.perPage = 20
   $scope.currPage = 1
-  $scope.totalPages = 0
+  $scope.totalPages = 1
   $scope.currResults = []
+  $scope.loading = true
+  $scope.failed = false
   converter = new Markdown.Converter()
 
   $scope.search = (value) ->
-    http.post '/search/0', {query:value}, (response) ->
-      console.log response
+    $scope.currPage = 1
+    $scope.totalPages = 1
+    $scope.currResults = []
+    $scope.loading = true
+    $scope.failed = false
+
+
+    if value && value.length > 0
+      http.post '/api/search/0', {query:value}, (response) ->
+        setupPaginator(response.results, response.all_results_size)
+        $scope.failed = response.all_results_size == 0
+        $scope.loading = false
+    else
+      http.get '/api/libraries/0', (response) ->
+        setupPaginator(response.results, response.all_results_size)
+        $scope.failed = $scope.all_results_size == 0
+        $scope.loading = false
 
   $scope.nextPage = ->
     return if $scope.currPage >= $scope.totalPages
@@ -44,12 +61,14 @@ window.RustKit.controller 'MainController', ['$document', '$scope', 'http', '$sc
       result.content = $sce.trustAsHtml(converter.makeHtml(Base64.b64_to_utf8(result.content))) if result.content
       result
     $scope.totalPages = Math.ceil(all_size/$scope.perPage)
-    $scope.allSize = $scope.totalSize = all_size
+    $scope.totalSize = all_size
     $scope.all_size
     computeCurrentResults()
 
   $scope.init = (data) -> #Set up default page
     setupPaginator(data.results, data.all_results_size)
+    $scope.allSize = data.all_results_size
     angular.element(document.getElementById('body')).removeAttr("ng-init") #Remove that embedded data from the DOM.
+    $scope.loading = false
     return
 ]

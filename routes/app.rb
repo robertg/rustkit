@@ -11,11 +11,12 @@ class RustKit < Sinatra::Base
 
   def libraries_on_page(page)
     libraries = @r.db('rustkit_db').table('libraries')
+    response = libraries.orderby(@r.desc(:stargazers_count))
+                .run(@connection).to_a
+
     {
-    results: libraries.orderby(@r.desc(:stargazers_count))
-              .slice(CONSTANTS[:per_page]*page, CONSTANTS[:per_page]+CONSTANTS[:per_page]*page)
-              .run(@connection).to_a,
-    all_results_size: libraries.count().run(@connection)
+      results: response[(CONSTANTS[:per_page]*page)...(CONSTANTS[:per_page]+CONSTANTS[:per_page]*page)],
+      all_results_size: response.length
     }.to_json
   end
 
@@ -31,7 +32,7 @@ class RustKit < Sinatra::Base
     send_file File.join(settings.public_folder, 'templates/result.html')
   end
 
-  post '/search/:page' do
+  post '/api/search/:page' do
 
     page = params[:page].to_i
     ng_params = JSON.parse(request.body.read)
@@ -62,24 +63,27 @@ class RustKit < Sinatra::Base
       end
     end
     libraries = @r.db('rustkit_db').table('libraries')
-    query.gsub! /\[.+?\]\s*/, ''
+    query = query.downcase.gsub /\[.+?\]\s*/, '' #Remove tags, and contents within brackets.
+    query = query.gsub /[^a-zA-Z0-9 -]/, '' #Remove any non-alphanumeric characters.
     filter_proc = Proc.new do |repo|
-      query.split(' ').inject(repo["description"]){ |filter, query| filter.match(query) }
+      query.split(' ').inject(repo["description"].downcase()){ |filter, query| filter.match(query) }
     end
     if tags.length > 0
-      response = libraries.get_all(*tags, {index: "tags"})
-                  .filter(filter_proc)
-                  .orderby(@r.desc(:stargazers_count))
-                  .slice(CONSTANTS[:per_page]*page, CONSTANTS[:per_page]+CONSTANTS[:per_page]*page).run(@connection).to_a
+      if query.split(' ').length > 0
+        response = libraries.get_all(*tags, {index: "tags"}).filter(filter_proc).orderby(@r.desc(:stargazers_count)).run(@connection).to_a
+      else
+        response = libraries.get_all(*tags, {index: "tags"}).orderby(@r.desc(:stargazers_count)).run(@connection).to_a
+      end
     else
-      response = libraries
-            .filter(filter_proc)
-            .orderby(@r.desc(:stargazers_count))
-            .slice(CONSTANTS[:per_page]*page, CONSTANTS[:per_page]+CONSTANTS[:per_page]*page).run(@connection).to_a
+      if query.split(' ').length > 0
+        response = libraries.filter(filter_proc).orderby(@r.desc(:stargazers_count)).run(@connection).to_a
+      else
+        response = libraries.orderby(@r.desc(:stargazers_count)).run(@connection).to_a
+      end
     end
 
-    return {
-      results: response,
+    {
+      results: response[(CONSTANTS[:per_page]*page)...(CONSTANTS[:per_page]+CONSTANTS[:per_page]*page)],
       all_results_size: response.length
     }.to_json
   end

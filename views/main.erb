@@ -1,5 +1,5 @@
 <div class="container" id="text-form">
-  <div class="row col-md-6 col-md-offset-3 sidebar">
+  <div class="row col-md-6 col-md-offset-3 sidebar center">
     <h1 class="sidebar--header">Rust Kit</h1>
     <p>An unofficial <a href="https://github.com/rust-lang/rust">Rust</a> library browser.<a href="https://github.com/rgawdzik/rustkit"> Contribute here.</a></p>
   </div>
@@ -10,6 +10,15 @@
         <input type="text" ng-model="search.input" class="form-control" placeholder="Search from {{allSize || 'n'}} Rust libraries. Use a tag with [tag].">
       </div>
     </form>
+
+    <div ng-if="loading" class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <div class="center" ng-if="failed">
+      <p>We couldn't find anything with your query. Maybe try something else?</p>
+    </div>
 
     <search-result result="result" ng-repeat="result in currResults"></search-result>
     <div class="search--navigation">
