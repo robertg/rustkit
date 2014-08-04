@@ -34,7 +34,7 @@ CONSTANTS = {
 }
 ```
 4. Run ```rake db:seed``` to seed the database with repos, tags, etc.
-5. Run the server with ```shotgun```
+5. Run the development server with ```shotgun```
 
 ### With much thanks to:
 
