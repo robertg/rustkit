@@ -6,6 +6,7 @@ windowing:
  - servo/rust-glut
  - SiegeLord/RustAllegro
  - jeaye/ncurses-rs
+ - tomaka/gl-init-rs
 
 open-gl:
  - bjz/gl-rs
@@ -16,6 +17,7 @@ audio:
  - JeremyLetang/rust-portaudio
  - JeremyLetang/ears
  - musitdev/rust-portmidi
+ - pistondevelopers/rust-dsp
 
 math:
  - bjz/cgmath-rs
@@ -25,6 +27,7 @@ math:
  - bjz/cgmath-rs
  - cmr/linalg
  - bjz/lmath-rs
+ - pistondevelopers/vecmath
 
 physics:
  - bjz/bullet-rs
@@ -44,6 +47,10 @@ assets:
  - h3r2tic/freeimage-rs
  - servo/rust-png
  - servo/rust-stb-image
+ - pistondevelopers/rust-image
+ 
+graphics:
+ - pistondevelopers/rust-graphics
 
 web:
  - erickt/rust-url
@@ -61,9 +68,6 @@ web:
  - Ogeon/rustful
  - skade/widmann
  - WebeWizard/libhttpd
-
-audio:
- - bjz/openal-rs
 
 manager:
  - rust-lang/cargo
@@ -141,7 +145,6 @@ gui:
  - jeaye/ncurses-rs
  - pnkfelix/rust-curses
  - gchp/rustbox
- - apribadi/rust-termbox
  - apribadi/rust-termbox
 
 parser:
