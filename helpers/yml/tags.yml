@@ -129,7 +129,7 @@ encoding:
  - DanielFath/xml-parser
  - Florob/RustyXML
  - netvl/rust-xml
- 
+
 networking:
 - zslayton/stomp-rs
 
