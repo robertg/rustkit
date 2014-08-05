@@ -1,7 +1,7 @@
 Rust Kit
 =======
 
-A community-made library explorer for crates.io, the [rust](https://github.com/rust-lang/rust) package manager.
+A community-made library explorer for the [Rust](https://github.com/rust-lang/rust) programming language.
 
 ## Core Technologies:
  - [RethinkDB](http://rethinkdb.com/)
