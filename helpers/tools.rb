@@ -34,7 +34,8 @@ class Tools
         end
         libraries = r.db(RDB_CONFIG[:db]).table("libraries")
         existing = libraries.get(repo.id.to_i).run(connection)
-        if !existing
+        days_since_update = (DateTime.now.to_date - repo.pushed_at.to_date).to_i
+        if !existing && days_since_update < 183 #Less than 6 months old
           libraries.insert({
             id:                  repo.id,
             name:                repo.name,
@@ -42,19 +43,19 @@ class Tools
             stargazers_count:    repo.stargazers_count,
             forks:               repo.forks,
             description:         repo.description,
-            last_updated:        repo.updated_at,
+            last_updated:        repo.pushed_at,
             content:             readme,
             clone_url:           repo.clone_url,
             tags:                tags
           }).run(connection)
-        else
+        elsif days_since_update < 183
           libraries.get(repo.id.to_i).update({
             name:                repo.name             || existing[:name],
             full_name:           repo.full_name        || existing[:full_name],
             stargazers_count:    repo.stargazers_count || existing[:stargazers_count],
             forks:               repo.forks            || existing[:forks],
             description:         repo.description      || existing[:description],
-            last_updated:        repo.updated_at       || existing[:updated_at],
+            last_updated:        repo.pushed_at       || existing[:pushed_at],
             content:             readme                || existing[:readme],
             clone_url:           repo.clone_url        || existing[:clone_url],
             tags:                tags
