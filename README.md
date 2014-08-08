@@ -13,7 +13,9 @@ Want to add a tag, or track your library under Rust Kit? We've made it easy for 
 with your changes to [/helpers/yml/tags.yml](https://github.com/rgawdzik/rustkit/blob/master/helpers/yml/tags.yml).
 This file is checked during a ```rake db:seed```; we automatically update our db tags and even add the repo (if it's missing) with it.
 
-Want us to automatically track your library so you don't need to do a Pull Request? Add the keyword 'library' into the title, description, or README of your project.
+Want us to automatically track your library so you don't need to do a Pull Request? Add the keyword 'library' into the title, description, or README of your project. 
+
+Was your project's last commit date older than 6 months? We automatically assume any inactive library does not function properly under Rust nightly. You can explicitly add it with the above instructions if it's not the case.
 
 Setup
 -----
