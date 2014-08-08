@@ -1,4 +1,4 @@
-Rust Kit
+Rust Kit [![Build Status](https://travis-ci.org/rgawdzik/rustkit.svg?branch=master)](https://travis-ci.org/rgawdzik/rustkit)
 =======
 
 A community-made library explorer for the [Rust](https://github.com/rust-lang/rust) programming language.
