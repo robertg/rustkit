@@ -7,4 +7,5 @@
 /pkg
 /doc/api
 config.rb
-
+.pid
+thin.*
