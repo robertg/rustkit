@@ -1,0 +1,15 @@
+---
+ environment: production
+ chdir: /home/ubuntu/rustkit
+ address: 127.0.0.1
+ user: root
+ group: root
+ port: 4567
+ pid: /home/ubuntu/rustkit/.pid/thin.pid
+ rackup: /home/ubuntu/rustkit/config.ru
+ log: /home/ubuntu/rustkit/thin.log
+ max_conns: 1024
+ timeout: 30
+ max_persistent_conns: 512
+ daemonize: true
+

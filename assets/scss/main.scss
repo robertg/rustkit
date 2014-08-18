@@ -140,6 +140,7 @@ ul, ol, li {
 .search--markdown {
   background-color: white;
   overflow: auto;
+  cursor: default;
 }
 .search--title {
   padding-left: 1rem;
@@ -164,6 +165,7 @@ ul, ol, li {
   border-radius: 4px;
   background-color: #FAFAFA;
   border: 1px solid #CCC;  margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .search--expand {
@@ -229,6 +231,7 @@ ul, ol, li {
   display: inline-block;
   margin: 0.2rem;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .search--tag_cntr {
