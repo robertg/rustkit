@@ -7,6 +7,7 @@ gem 'sinatra-asset-snack', '~>0.1.6'
 gem "octokit", "~> 3.0"
 gem 'json'
 gem 'rake'
+gem 'whenever', :require => false
 
 #Debugging
 gem 'pry'
