@@ -68,6 +68,10 @@ web:
  - Ogeon/rustful
  - skade/widmann
  - WebeWizard/libhttpd
+ - hyperium/hyper
+ - rustless/rustless
+ - rustless/rust-query
+ - rustless/valico
 
 manager:
  - rust-lang/cargo
