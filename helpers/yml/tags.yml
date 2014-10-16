@@ -80,6 +80,7 @@ compression:
  - alexcrichton/rust-compress
  - erickt/rustzlib
  - thestinger/rust-snappy
+ - badboy/lzf-rs
 
 computation:
  - eholk/rust-opencl
