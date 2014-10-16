@@ -157,3 +157,6 @@ parser:
  - kevinmehall/rust-peg
  - Valloric/nailed
 
+
+hashing:
+  - badboy/crc64-rs
