@@ -10,10 +10,10 @@ gem 'rake'
 gem 'whenever', :require => false
 
 #Debugging
-gem 'pry'
-gem 'pry-remote'
-gem 'pry-stack_explorer'
-gem 'pry-debugger'
+#gem 'pry'
+#gem 'pry-remote'
+#gem 'pry-stack_explorer'
+#gem 'pry-debugger'
 
 group :development do
   gem "awesome_print"
