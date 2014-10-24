@@ -1,11 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/asset_snack'
 require 'octokit'
-require 'pry'
 require 'rethinkdb'
-require 'pry-remote'
-require 'pry-stack_explorer'
-require 'pry-debugger'
 require 'json'
 
 require_relative 'config'

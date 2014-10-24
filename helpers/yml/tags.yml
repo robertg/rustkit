@@ -18,6 +18,7 @@ audio:
  - JeremyLetang/ears
  - musitdev/rust-portmidi
  - pistondevelopers/rust-dsp
+ - GuillaumeGomez/rust-fmod
 
 math:
  - bjz/cgmath-rs
