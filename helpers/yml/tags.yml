@@ -42,6 +42,7 @@ engine:
  - katis/apollo
  - kimhyunkang/r5.rs
  - servo/rust-mozjs
+ - bbodi/rust-voxlap
 
 assets:
  - h3r2tic/assimp-rs
