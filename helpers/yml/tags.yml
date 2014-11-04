@@ -1,3 +1,14 @@
+pretty-printing:
+ - jonsterling/rust-pretty
+
+functional-programming:
+ - darinmorrison/epsilonz.rs
+ - darinmorrison/free.rs
+
+data-structures:
+ - darinmorrison/fingertree.rs
+ - darinmorrison/rope.rs
+
 windowing:
  - bjz/glfw-rs
  - brson/rust-sdl
@@ -29,6 +40,7 @@ math:
  - cmr/linalg
  - bjz/lmath-rs
  - pistondevelopers/vecmath
+ - darinmorrison/algebra.rs
 
 physics:
  - bjz/bullet-rs
