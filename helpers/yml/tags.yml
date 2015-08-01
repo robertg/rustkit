@@ -118,7 +118,6 @@ database:
 
 time:
  - lifthrasiir/rust-chrono
- - luisbg/rust-datetime
  - tedhorst/rust_datetime
 
 embedded:

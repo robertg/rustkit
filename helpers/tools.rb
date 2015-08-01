@@ -19,7 +19,7 @@ class Tools
 
         repo_tags.each do |tag, repo_names|
           repo_names.each do |repo_name|
-            tags << tag if repo_name.downcase == repo.full_name.downcase
+            tags << tag if (repo_name || '').downcase == (repo.full_name || '').downcase
           end
         end
 
@@ -34,7 +34,7 @@ class Tools
         end
         libraries = r.db(RDB_CONFIG[:db]).table("libraries")
         existing = libraries.get(repo.id.to_i).run(connection)
-        days_since_update = (DateTime.now.to_date - repo.pushed_at.to_date).to_i
+        days_since_update = repo.pushed_at.nil? ? 184 : (DateTime.now.to_date - repo.pushed_at.to_date).to_i
         if !existing && days_since_update < 183 #Less than 6 months old
           libraries.insert({
             id:                  repo.id,
