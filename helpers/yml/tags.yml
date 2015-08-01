@@ -171,6 +171,8 @@ parser:
  - jesse99/rparse
  - kevinmehall/rust-peg
  - Valloric/nailed
+ - kbknapp/clap-rs
+ - thoughtram/clog
 
 
 hashing:
