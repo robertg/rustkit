@@ -115,6 +115,7 @@ database:
  - blackbeam/rust-mysql-simple
  - mitsuhiko/redis-rs
  - mneumann/rust-redis
+ - AlexPikalov/cdrs
 
 time:
  - lifthrasiir/rust-chrono
