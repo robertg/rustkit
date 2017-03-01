@@ -1,7 +1,7 @@
-Rust Kit [![Build Status](https://travis-ci.org/rgawdzik/rustkit.svg?branch=master)](https://travis-ci.org/rgawdzik/rustkit)
+Rust Kit (DEPRECATED) [![Build Status](https://travis-ci.org/rgawdzik/rustkit.svg?branch=master)](https://travis-ci.org/rgawdzik/rustkit)
 =======
 
-A community-made library explorer for the [Rust](https://github.com/rust-lang/rust) programming language.
+A community-made library explorer for the [Rust](https://github.com/rust-lang/rust) programming language. http://rustkit.io has been discontinued. Use [crates.io](https://crates.io/)
 
 ## Core Technologies:
  - [RethinkDB](http://rethinkdb.com/)
